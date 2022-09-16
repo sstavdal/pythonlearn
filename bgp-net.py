@@ -25,3 +25,4 @@ getasn = pyip.inputInt("Please enter ASN number you want to query : ")
 byasn(getasn)
 
 pprint.pprint(getasn)
+print()
