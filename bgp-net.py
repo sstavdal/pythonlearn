@@ -25,4 +25,8 @@ getasn = pyip.inputInt("Please enter ASN number you want to query : ")
 byasn(getasn)
 
 pprint.pprint(getasn)
-print()
+
+
+ms = requests.get("https://api.asrank.caida.org/v2/restful/asns/8075")
+
+print(ms.text)
