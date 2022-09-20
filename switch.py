@@ -5,27 +5,27 @@ import pyautogui as gui
 def eur ():
     settings = {
         "dns1": "1.1.1.1",
-        "dns2": "2.2.2.2",
-        "ntp1": "1.2.3.4",
-        "ntp2": "4.3.2.1"
+        "dns2": "1.1.1.1",
+        "ntp1": "1.1.1.1",
+        "ntp2": "1.1.1.1"
     }
     return settings
 
 def amer ():
     settings = {
-        "dns1": "1.1.1.1",
+        "dns1": "2.2.2.2",
         "dns2": "2.2.2.2",
-        "ntp1": "1.2.3.4",
-        "ntp2": "4.3.2.1"
+        "ntp1": "2.2.2.2",
+        "ntp2": "2.2.2.2"
     }
     return settings
 
 def asia ():
     settings = {
-        "dns1": "1.1.1.1",
-        "dns2": "2.2.2.2",
-        "ntp1": "1.2.3.4",
-        "ntp2": "4.3.2.1"
+        "dns1": "3.3.3.3",
+        "dns2": "3.3.3.3",
+        "ntp1": "3.3.3.3",
+        "ntp2": "3.3.3.3"
     }
     return settings
 
@@ -50,5 +50,11 @@ region = pyip.inputMenu(['eur','amer','asia'],numbered=True)
 
 print("You chose " + region)
 
-settings = region()
+if region == "eur":
+    settings=eur()
+elif region == "amer":
+    settings=amer()
+elif region == "asia":
+    settings = asia()
+
 print(settings)
