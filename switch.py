@@ -4,24 +4,9 @@ import pyautogui as gui
 import ipaddress
 
 settings = {
-    "asia": {
-        "dns1": "3.3.3.1",
-        "dns2": "3.3.3.2",
-        "ntp1": "3.3.3.3",
-        "ntp2": "3.3.3.4"
-    },
-    "amer": {
-        "dns1": "2.2.2.1",
-        "dns2": "2.2.2.2",
-        "ntp1": "2.2.2.3",
-        "ntp2": "2.2.2.4"
-    },
-    "eur":{
-        "dns1": "1.1.1.1",
-        "dns2": "1.1.1.2",
-        "ntp1": "1.1.1.3",
-        "ntp2": "1.1.1.4"
-    } 
+    "asia": {"dns1": "3.3.3.1","dns2": "3.3.3.2","ntp1": "3.3.3.3","ntp2": "3.3.3.4"},
+    "amer": {"dns1": "2.2.2.1","dns2": "2.2.2.2","ntp1": "2.2.2.3","ntp2": "2.2.2.4"},
+    "eur":{"dns1": "1.1.1.1","dns2": "1.1.1.2","ntp1": "1.1.1.3","ntp2": "1.1.1.4"} 
 }
 
 def getRegionSettings(region) : 
@@ -41,18 +26,14 @@ if switchnum < 10:
 
 # Setting hostname based on input
 hostname = ("Hostname : " + cc + "-" + ap + str(sid)+"-sw"+str(switchnum))
-print(hostname)
 
 # Next, collect regional information
 region = pyip.inputMenu(['eur','amer','asia'],numbered=True)
 
-print(region)
-
 # print("You chose " + region)
 settings = getRegionSettings(region)
-print(settings)
-print(type(settings))
 
+print("Hostname " + hostname)
 print("DNS1 : " + settings.get("dns1"))
 print("DNS2 : " + settings.get("dns2"))
 print("NTP1 : " + settings.get("ntp1"))
