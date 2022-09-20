@@ -6,7 +6,7 @@ import ipaddress
 settings = {
     "asia": {"dns1": "3.3.3.1","dns2": "3.3.3.2","ntp1": "3.3.3.3","ntp2": "3.3.3.4"},
     "amer": {"dns1": "2.2.2.1","dns2": "2.2.2.2","ntp1": "2.2.2.3","ntp2": "2.2.2.4"},
-    "eur":{"dns1": "1.1.1.1","dns2": "1.1.1.2","ntp1": "1.1.1.3","ntp2": "1.1.1.4"} 
+    "eur": {"dns1": "1.1.1.1","dns2": "1.1.1.2","ntp1": "1.1.1.3","ntp2": "1.1.1.4"} 
 }
 
 def getRegionSettings(region) : 
@@ -38,3 +38,12 @@ print("DNS1 : " + settings.get("dns1"))
 print("DNS2 : " + settings.get("dns2"))
 print("NTP1 : " + settings.get("ntp1"))
 print("NTP2 : " + settings.get("ntp2"))
+
+# Next, collect regional information
+type = pyip.inputMenu(['hp','aruba','cisco'],numbered=True)
+print(type)
+
+path = r"template.{}"
+f = open(path.format(type))
+
+print(f.read())
