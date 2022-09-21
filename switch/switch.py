@@ -47,14 +47,14 @@ print(type)
 path = r"template.{}"
 
 # open template file and replace the text into the data variable
-with open(path.format(type), 'r') as file:
-    data = file.read()
+with open(path.format(type), 'r') as template:
+    data = template.read()
     data = data.replace("_dns1_", settings.get("dns1"))
     data = data.replace("_dns2_", settings.get("dns2"))
     data = data.replace("_ntp1_", settings.get("ntp1"))
     data = data.replace("_ntp2_", settings.get("ntp2"))
     data = data.replace("_hostname_", hostname)
-    file.close()
+    template.close()
   
 # Writing config file as hostname.txt
 with open('{0}.txt'.format(hostname),"w") as config:

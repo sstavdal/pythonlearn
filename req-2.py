@@ -9,6 +9,8 @@ r = requests.post('https://httpbin.org/post',data=payload)
 # Load the results from json into a python dictionary
 r_dict = r.json()
 
+print(type(r_dict)) # confirm python dict type
+
 # Access the object form from the dictionary
 print(r_dict['form'])
 
