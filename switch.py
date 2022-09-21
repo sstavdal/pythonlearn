@@ -43,27 +43,20 @@ settings = getRegionSettings(region)
 type = pyip.inputMenu(['hp','aruba','cisco'],numbered=True)
 print(type)
 
+# Set the name of the template based on chosen type as f
 path = r"template.{}"
-f = open(path.format(type))
 
-print(f.read())
-
-conf = f.read
-
-print("Here goes the config : " , str(conf))
-
-# Opening our text file in read only
-# mode using the open() function
+# open template file and replace the text into the data variable
 with open(path.format(type), 'r') as file:
     data = file.read()
     data = data.replace("_dns1_", settings.get("dns1"))
     data = data.replace("_dns2_", settings.get("dns2"))
     data = data.replace("_ntp1_", settings.get("ntp1"))
-    data = data.replace("_ntp2_", settings.get("ntp1"))
+    data = data.replace("_ntp2_", settings.get("ntp2"))
     data = data.replace("_hostname_", hostname)
+    file.close()
   
-# Opening our text file in write only
-# mode to write the replaced content
-
+# Writing config file as hostname.txt
 with open('{0}.txt'.format(hostname),"w") as config:
     config.write(data)
+    config.close()
