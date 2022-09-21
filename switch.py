@@ -25,7 +25,7 @@ if switchnum < 10:
     switchnum = ("0"+str(switchnum))
 
 # Setting hostname based on input
-hostname = ("Hostname : " + cc + "-" + ap + str(sid)+"-sw"+str(switchnum))
+hostname = (cc + "-" + ap + str(sid)+"-sw"+str(switchnum))
 
 # Next, collect regional information
 region = pyip.inputMenu(['eur','amer','asia'],numbered=True)
@@ -33,11 +33,11 @@ region = pyip.inputMenu(['eur','amer','asia'],numbered=True)
 # print("You chose " + region)
 settings = getRegionSettings(region)
 
-print("Hostname " + hostname)
-print("DNS1 : " + settings.get("dns1"))
-print("DNS2 : " + settings.get("dns2"))
-print("NTP1 : " + settings.get("ntp1"))
-print("NTP2 : " + settings.get("ntp2"))
+# print("Hostname " + hostname)
+# print("DNS1 : " + settings.get("dns1"))
+# print("DNS2 : " + settings.get("dns2"))
+# print("NTP1 : " + settings.get("ntp1"))
+# print("NTP2 : " + settings.get("ntp2"))
 
 # Next, collect regional information
 type = pyip.inputMenu(['hp','aruba','cisco'],numbered=True)
@@ -47,3 +47,23 @@ path = r"template.{}"
 f = open(path.format(type))
 
 print(f.read())
+
+conf = f.read
+
+print("Here goes the config : " , str(conf))
+
+# Opening our text file in read only
+# mode using the open() function
+with open(path.format(type), 'r') as file:
+    data = file.read()
+    data = data.replace("_dns1_", settings.get("dns1"))
+    data = data.replace("_dns2_", settings.get("dns2"))
+    data = data.replace("_ntp1_", settings.get("ntp1"))
+    data = data.replace("_ntp2_", settings.get("ntp1"))
+    data = data.replace("_hostname_", hostname)
+  
+# Opening our text file in write only
+# mode to write the replaced content
+
+with open('{0}.txt'.format(hostname),"w") as config:
+    config.write(data)

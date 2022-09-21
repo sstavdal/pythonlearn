@@ -5,12 +5,12 @@ setting settings
 setting settings
 setting settings
 setting settings
-hostname [hostname]
+hostname _hostname_
 setting settings
 setting settings
-dns 1 is [dns1]
-dns 2 is [dns2]
+dns 1 is _dns1_
+dns 2 is _dns2_
 setting settings
 setting settings
-ntp 1 is [ntp1]
-ntp 2 is [ntp2]
+ntp 1 is _ntp1_
+ntp 2 is _ntp2_
