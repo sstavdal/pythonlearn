@@ -7,3 +7,8 @@ Modules worth using
 
 pyinputplus (for input validation)
 
+
+
+netmiko # expect-ish 
+pythonhttps://pypi.org/project/netmiko/
+https://github.com/ktbyers/netmiko/blob/develop/EXAMPLES.md#connect-using-a-dictionary

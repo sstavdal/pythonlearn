@@ -1,7 +1,7 @@
 import pyinputplus as pyip
 from pathlib import Path
 import pyautogui as gui
-import ipaddress
+
 
 settings = {
     "asia": {"dns1": "3.3.3.1","dns2": "3.3.3.2","ntp1": "3.3.3.3","ntp2": "3.3.3.4"},

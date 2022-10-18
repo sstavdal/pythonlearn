@@ -1,0 +1,16 @@
+/Users/sstavdalThis file contains the ARUBA config for the switch
+
+setting settings
+setting settings
+setting settings
+setting settings
+setting settings
+hostname usa-hou234-sw23
+setting settings
+setting settings
+dns 1 is 1.1.1.1
+dns 2 is 1.1.1.2
+setting settings
+setting settings
+ntp 1 is 1.1.1.3
+ntp 2 is 1.1.1.4
